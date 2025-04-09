@@ -8,6 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import SuccessAnimation from "./success-animation";
 import { useToast } from "@/hooks/use-toast";
 import { Github, Linkedin, Instagram, Mail, Phone, Send } from "lucide-react";
 import emailjs from "@emailjs/browser";
@@ -18,6 +19,7 @@ export default function Contact() {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccessAnimation, setShowSuccessAnimation] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -44,11 +46,7 @@ export default function Contact() {
 
     try {
       await emailjs.sendForm(serviceID, templateID, formRef.current, publicKey);
-      toast({
-        title: "Message sent!",
-        description: "Thanks for reaching out. I'll get back to you soon.",
-        variant: "default",
-      });
+      setShowSuccessAnimation(true);
       formRef.current.reset();
     } catch (error) {
       console.error("EmailJS error:", error);
@@ -61,6 +59,10 @@ export default function Contact() {
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const handleAnimationComplete = () => {
+    setShowSuccessAnimation(false);
   };
 
   const socialLinks = [
@@ -257,6 +259,11 @@ export default function Contact() {
           </motion.div>
         </div>
       </div>
+
+      <SuccessAnimation
+        show={showSuccessAnimation}
+        onComplete={handleAnimationComplete}
+      />
     </section>
   );
 }
