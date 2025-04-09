@@ -73,12 +73,7 @@ export default function Projects() {
       title: "SubSync",
       description:
         "A modern mobile application designed to help users track and manage their digital subscriptions in one place, with intuitive design and user-friendly interactions.",
-      images: [
-        "/placeholder.svg?height=600&width=800&text=SubSync+Dashboard",
-        "/placeholder.svg?height=600&width=800&text=SubSync+Subscription+Details",
-        "/placeholder.svg?height=600&width=800&text=SubSync+Analytics",
-        "/placeholder.svg?height=600&width=800&text=SubSync+Settings",
-      ],
+      images: ["/subsync/subsync1.svg", "/subsync/subsync2.svg"],
       technologies: [
         "React Native",
         "Redux",
