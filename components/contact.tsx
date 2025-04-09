@@ -10,26 +10,57 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Github, Linkedin, Instagram, Mail, Phone, Send } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const ref = useRef(null);
+  const formRef = useRef<HTMLFormElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!formRef.current) return;
+
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
+    const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    // Basic check to ensure environment variables are loaded
+    if (!serviceID || !templateID || !publicKey) {
+      console.error("EmailJS environment variables not configured.");
+      toast({
+        title: "Configuration Error",
+        description:
+          "The contact form is not configured correctly. Please contact the site administrator.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      await emailjs.sendForm(serviceID, templateID, formRef.current, publicKey);
       toast({
         title: "Message sent!",
         description: "Thanks for reaching out. I'll get back to you soon.",
+        variant: "default",
       });
+      formRef.current.reset();
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      toast({
+        title: "Uh oh! Something went wrong.",
+        description:
+          "There was a problem sending your message. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
       setIsSubmitting(false);
-      (e.target as HTMLFormElement).reset();
-    }, 1500);
+    }
   };
 
   const socialLinks = [
@@ -144,10 +175,15 @@ export default function Contact() {
                 <h3 className="text-xl font-bold mb-6 text-white">
                   Send Me a Message
                 </h3>
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form
+                  ref={formRef}
+                  onSubmit={handleSubmit}
+                  className="space-y-4"
+                >
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <Input
+                        name="name"
                         placeholder="Your Name"
                         required
                         className="bg-emerald-950/30 border-emerald-900/50 text-white placeholder:text-gray-500"
@@ -156,6 +192,7 @@ export default function Contact() {
                     <div>
                       <Input
                         type="email"
+                        name="user_email"
                         placeholder="Your Email"
                         required
                         className="bg-emerald-950/30 border-emerald-900/50 text-white placeholder:text-gray-500"
@@ -164,6 +201,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <Input
+                      name="subject"
                       placeholder="Subject"
                       required
                       className="bg-emerald-950/30 border-emerald-900/50 text-white placeholder:text-gray-500"
@@ -171,6 +209,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <Textarea
+                      name="message"
                       placeholder="Your Message"
                       required
                       className="min-h-[150px] bg-emerald-950/30 border-emerald-900/50 text-white placeholder:text-gray-500"
