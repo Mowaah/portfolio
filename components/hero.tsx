@@ -8,7 +8,7 @@ import {
   Github,
   Linkedin,
   Instagram,
-  Dribbble,
+  Phone,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -61,8 +61,8 @@ export default function Hero() {
     },
     {
       name: "Dribbble",
-      icon: <Dribbble className="h-5 w-5" />,
-      url: "https://dribbble.com",
+      icon: <Phone className="h-5 w-5" />,
+      url: "https://wa.me/+201553726975?text=hey",
       position: { top: "80%", right: "-80px" },
     },
   ];

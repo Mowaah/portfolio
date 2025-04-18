@@ -37,11 +37,14 @@ export default function Projects() {
       description:
         "A comprehensive restaurant management software that handles stock, dishes, orders, and provides analytical dashboards.",
       images: [
+        "/tavearn/tavearn-login.png",
         "/tavearn/tavearn-dashboard.png",
         "/tavearn/tavearn-staff.png",
         "/tavearn/tavearn-staff-form.png",
+        "/tavearn/tavearn-reservation.png",
+        "/tavearn/tavearn-reservation-form.png",
       ],
-      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui"],
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Ant-Design"],
       features: [
         "Inventory management system",
         "Menu and dish management",
@@ -56,11 +59,14 @@ export default function Projects() {
       description:
         "An instant ticket purchasing app for transportation companies. Users can scan QR codes to buy tickets, while companies can access analytics.",
       images: [
+        "/airtick/airtick-login.png",
         "/airtick/airtick-dashboard.png",
+        "/airtick/airtick-forms.png",
         "/airtick/airtick-form.png",
         "/airtick/airtick-ticket.png",
+        "/airtick/airtick-settings.png",
       ],
-      technologies: ["React", "TypeScript", "Material UI", "SASS"],
+      technologies: ["React", "TypeScript", "Material UI", "SASS", "shadcn/ui"],
       features: [
         "QR code scanning",
         "Instant ticket purchase",
@@ -82,12 +88,11 @@ export default function Projects() {
       ],
       features: [
         "Subscription tracking with detailed information",
-        "Financial overview of monthly and annual spending",
-        "Category management for organizing subscriptions",
-        "Multiple currency support with automatic conversion",
+        "Financial overview",
+        "Category management ",
+        "Multiple currency support",
         "Renewal reminders and notifications",
-        "Custom billing cycles support",
-        "Detailed analytics and spending patterns",
+        "Detailed analytics",
       ],
       isMobile: true,
     },
