@@ -147,6 +147,25 @@ export default function Hero() {
               </Button>
             </a>
           </div>
+
+          {/* Social Links for Mobile (below text) */}
+          <div className="flex lg:hidden justify-center gap-4 mt-8 mb-8">
+            {socialLinks.map((link, index) => (
+              <motion.a
+                key={`${link.name}-mobile`}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="z-20 p-3 bg-background/80 backdrop-blur-sm rounded-full border border-emerald-500/30 hover:bg-emerald-500/20 transition-all duration-300 text-white"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                whileHover={{ scale: 1.1 }}
+              >
+                {link.icon}
+              </motion.a>
+            ))}
+          </div>
         </motion.div>
 
         <motion.div
@@ -175,7 +194,7 @@ export default function Hero() {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="absolute z-20 p-3 bg-background/80 backdrop-blur-sm rounded-full border border-emerald-500/30 hover:bg-emerald-500/20 transition-all duration-300"
+                className="absolute z-20 p-3 bg-background/80 backdrop-blur-sm rounded-full border border-emerald-500/30 hover:bg-emerald-500/20 transition-all duration-300 hidden lg:block"
                 style={link.position as any}
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}

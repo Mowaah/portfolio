@@ -6,7 +6,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Mohamed Bahaa | Frontend Developer",
   description:
-    "Portfolio of Mohamed Bahaa, a frontend developer specializing in React, Next.js, and TypeScript",
+    "Portfolio of Mohamed Bahaa, a frontend developer specializing in Next.js, Sass, and TypeScript",
 };
 
 export default function RootLayout({
