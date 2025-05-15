@@ -29,7 +29,7 @@ export const metadata: Metadata = {
       "Portfolio of Mohamed Bahaa, a frontend developer specializing in React, Next.js, and TypeScript.",
     images: [
       {
-        url: "/og-default.png",
+        url: "/mohabof-twitter.jpg",
         width: 1200,
         height: 630,
         alt: "Mohamed Bahaa - Frontend Developer Portfolio Banner",

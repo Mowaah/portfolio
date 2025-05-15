@@ -178,7 +178,7 @@ export default function Hero() {
           <div className="relative w-[280px] md:w-[350px] h-[350px] md:h-[700px]">
             <div className="absolute inset-0 rounded-full bg-gradient-to-b from-emerald-500/20 to-transparent blur-xl"></div>
             <Image
-              src="/mohamed.png"
+              src="/mohamed.webp"
               alt="Mohamed Bahaa"
               className="relative z-10 w-full h-full object-cover rounded-2xl"
               width={1000}

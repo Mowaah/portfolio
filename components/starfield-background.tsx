@@ -76,32 +76,18 @@ export default function StarfieldBackground() {
         const twinkleFactor = (Math.sin(star.twinklePhase) + 1) / 2;
         const currentOpacity = star.opacity * (0.5 + twinkleFactor * 0.5);
 
-        // Draw star with green tint
-        const greenIntensity = 0.7 + twinkleFactor * 0.3;
+        // Simplified drawing: solid color circles with varying opacity
+        // This avoids creating radial gradients in each frame for each star
+        const baseR = 16; // From emerald-700 (approx)
+        const baseG = 185; // From emerald-600 (approx)
+        const baseB = 129; // From emerald-500 (approx)
 
-        // Create gradient for star glow
-        const gradient = ctx.createRadialGradient(
-          star.x,
-          star.y,
-          0,
-          star.x,
-          star.y,
-          star.size * 2
-        );
-
-        gradient.addColorStop(
-          0,
-          `rgba(80, 250, 123, ${currentOpacity * greenIntensity})`
-        );
-        gradient.addColorStop(
-          0.5,
-          `rgba(16, 185, 129, ${currentOpacity * 0.5})`
-        );
-        gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
+        // Modulate brightness/intensity slightly with twinkleFactor as well
+        const effectiveOpacity = currentOpacity * (0.7 + twinkleFactor * 0.3);
 
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
-        ctx.fillStyle = gradient;
+        ctx.fillStyle = `rgba(${baseR}, ${baseG}, ${baseB}, ${effectiveOpacity})`;
         ctx.fill();
       });
 

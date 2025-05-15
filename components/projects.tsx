@@ -12,6 +12,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
+import Image from "next/image";
 
 interface Project {
   id: string;
@@ -275,6 +276,9 @@ function ProjectImageCarousel({
     );
   };
 
+  const imageWidth = 1280;
+  const imageHeight = 720;
+
   return (
     <div className="relative overflow-hidden aspect-video">
       <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/50 to-transparent z-10"></div>
@@ -282,18 +286,24 @@ function ProjectImageCarousel({
       {/* Image Carousel */}
       <div className="relative w-full h-full">
         <AnimatePresence initial={false} mode="wait">
-          <motion.img
+          <motion.div
             key={currentIndex}
-            src={images[currentIndex]}
-            alt={`${projectTitle} - ${
-              isMobile ? "Mobile App View" : "Screenshot"
-            } ${currentIndex + 1}`}
-            className="absolute w-full h-full object-cover"
+            className="absolute w-full h-full"
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -100 }}
             transition={{ duration: 0.3 }}
-          />
+          >
+            <Image
+              src={images[currentIndex]}
+              alt={`${projectTitle} - ${
+                isMobile ? "Mobile App View" : "Screenshot"
+              } ${currentIndex + 1}`}
+              width={imageWidth}
+              height={imageHeight}
+              className="w-full h-full object-contain"
+            />
+          </motion.div>
         </AnimatePresence>
       </div>
 
