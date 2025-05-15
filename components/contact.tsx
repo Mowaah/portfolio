@@ -12,6 +12,7 @@ import SuccessAnimation from "./success-animation";
 import { useToast } from "@/hooks/use-toast";
 import { Github, Linkedin, Instagram, Mail, Phone, Send } from "lucide-react";
 import emailjs from "@emailjs/browser";
+import { Label } from "@/components/ui/label";
 
 export default function Contact() {
   const ref = useRef(null);
@@ -183,36 +184,44 @@ export default function Contact() {
                   className="space-y-4"
                 >
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
+                    <div className="space-y-1.5">
+                      <Label htmlFor="contact-name">Your Name</Label>
                       <Input
+                        id="contact-name"
                         name="name"
-                        placeholder="Your Name"
+                        placeholder="e.g. John Doe"
                         required
                         className="bg-emerald-950/30 border-emerald-900/50 text-white placeholder:text-gray-500"
                       />
                     </div>
-                    <div>
+                    <div className="space-y-1.5">
+                      <Label htmlFor="contact-email">Your Email</Label>
                       <Input
+                        id="contact-email"
                         type="email"
                         name="user_email"
-                        placeholder="Your Email"
+                        placeholder="e.g. john@example.com"
                         required
                         className="bg-emerald-950/30 border-emerald-900/50 text-white placeholder:text-gray-500"
                       />
                     </div>
                   </div>
-                  <div>
+                  <div className="space-y-1.5">
+                    <Label htmlFor="contact-subject">Subject</Label>
                     <Input
+                      id="contact-subject"
                       name="subject"
                       placeholder="Subject"
                       required
                       className="bg-emerald-950/30 border-emerald-900/50 text-white placeholder:text-gray-500"
                     />
                   </div>
-                  <div>
+                  <div className="space-y-1.5">
+                    <Label htmlFor="contact-message">Your Message</Label>
                     <Textarea
+                      id="contact-message"
                       name="message"
-                      placeholder="Your Message"
+                      placeholder="I'd like to discuss..."
                       required
                       className="min-h-[150px] bg-emerald-950/30 border-emerald-900/50 text-white placeholder:text-gray-500"
                     />

@@ -4,9 +4,47 @@ import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://portfolio-ivory-phi-12.vercel.app/"),
   title: "Mohamed Bahaa | Frontend Developer",
   description:
-    "Portfolio of Mohamed Bahaa, a frontend developer specializing in Next.js, Sass, and TypeScript",
+    "Portfolio of Mohamed Bahaa, a frontend developer specializing in React, Next.js, and TypeScript",
+  keywords: [
+    "Mohamed Bahaa",
+    "frontend developer",
+    "React developer",
+    "Next.js developer",
+    "TypeScript",
+    "web developer",
+    "portfolio",
+    "React Native",
+    "JavaScript",
+    "Egypt",
+  ],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://portfolio-ivory-phi-12.vercel.app/",
+    title: "Mohamed Bahaa | Frontend Developer",
+    description:
+      "Portfolio of Mohamed Bahaa, a frontend developer specializing in React, Next.js, and TypeScript.",
+    images: [
+      {
+        url: "/og-default.png",
+        width: 1200,
+        height: 630,
+        alt: "Mohamed Bahaa - Frontend Developer Portfolio Banner",
+      },
+    ],
+    siteName: "Mohamed Bahaa Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mohamed Bahaa | Frontend Developer",
+    description:
+      "Portfolio of Mohamed Bahaa, a frontend developer specializing in React, Next.js, and TypeScript.",
+    creator: "@MohaBOF",
+    images: ["/twitter-default.png"],
+  },
 };
 
 export default function RootLayout({

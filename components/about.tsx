@@ -1,40 +1,48 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { useInView } from "framer-motion"
-import { useRef } from "react"
-import { Card, CardContent } from "@/components/ui/card"
-import { User, Code, Lightbulb, Zap } from "lucide-react"
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { User, Code, Lightbulb, Zap } from "lucide-react";
 
 export default function About() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.3 })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   const qualities = [
     {
       icon: <User className="h-6 w-6 text-emerald-500" />,
       title: "User-Focused",
-      description: "I create intuitive interfaces with the end-user always in mind.",
+      description:
+        "I create intuitive interfaces with the end-user always in mind.",
     },
     {
       icon: <Code className="h-6 w-6 text-emerald-500" />,
       title: "Clean Code",
-      description: "I write maintainable, well-structured code following best practices.",
+      description:
+        "I write maintainable, well-structured code following best practices.",
     },
     {
       icon: <Lightbulb className="h-6 w-6 text-emerald-500" />,
       title: "Problem Solver",
-      description: "I enjoy tackling complex challenges with creative solutions.",
+      description:
+        "I enjoy tackling complex challenges with creative solutions.",
     },
     {
       icon: <Zap className="h-6 w-6 text-emerald-500" />,
       title: "Fast Learner",
-      description: "I quickly adapt to new technologies and development methodologies.",
+      description:
+        "I quickly adapt to new technologies and development methodologies.",
     },
-  ]
+  ];
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-b from-background to-emerald-950/20" ref={ref}>
+    <section
+      id="about"
+      className="py-20 bg-gradient-to-b from-background to-emerald-950/20"
+      ref={ref}
+    >
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -45,8 +53,11 @@ export default function About() {
           <h2 className="text-3xl font-bold mb-2 text-white">About Me</h2>
           <div className="w-20 h-1 bg-emerald-500 mx-auto mb-6"></div>
           <p className="max-w-2xl mx-auto text-gray-300">
-            I'm a passionate frontend developer from Egypt with a keen eye for detail and a dedication to creating
-            seamless user experiences. I specialize in building modern web applications using the latest technologies.
+            I'm a passionate frontend developer from Egypt with a keen eye for
+            detail and a dedication to creating seamless user experiences. I
+            specialize in building modern, interactive web applications,
+            primarily using React, Next.js, and TypeScript to develop efficient
+            and scalable solutions.
           </p>
         </motion.div>
 
@@ -63,7 +74,9 @@ export default function About() {
                   <div className="p-3 bg-emerald-500/10 rounded-full mb-4 border border-emerald-500/20">
                     {quality.icon}
                   </div>
-                  <h3 className="font-bold text-lg mb-2 text-white">{quality.title}</h3>
+                  <h3 className="font-bold text-lg mb-2 text-white">
+                    {quality.title}
+                  </h3>
                   <p className="text-gray-400">{quality.description}</p>
                 </CardContent>
               </Card>
@@ -72,6 +85,5 @@ export default function About() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-

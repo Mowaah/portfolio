@@ -285,7 +285,9 @@ function ProjectImageCarousel({
           <motion.img
             key={currentIndex}
             src={images[currentIndex]}
-            alt={`${projectTitle} - Image ${currentIndex + 1}`}
+            alt={`${projectTitle} - ${
+              isMobile ? "Mobile App View" : "Screenshot"
+            } ${currentIndex + 1}`}
             className="absolute w-full h-full object-cover"
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}

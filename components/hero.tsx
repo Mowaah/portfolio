@@ -60,7 +60,7 @@ export default function Hero() {
       position: { top: "60%", right: "-70px" },
     },
     {
-      name: "Dribbble",
+      name: "WhatsApp",
       icon: <Phone className="h-5 w-5" />,
       url: "https://wa.me/+201553726975?text=hey",
       position: { top: "80%", right: "-80px" },
