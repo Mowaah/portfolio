@@ -183,7 +183,7 @@ export default function Skills() {
                   >
                     <Badge
                       variant="outline"
-                      className={`px-3 py-2 text-sm font-medium border ${getSkillColor(
+                      className={`px-3 py-2.5 text-sm font-medium border ${getSkillColor(
                         skillLevels[
                           skill as keyof typeof skillLevels
                         ] as SkillLevel

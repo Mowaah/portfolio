@@ -72,6 +72,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="relative"
+            aria-label="Mohamed Bahaa - Frontend Developer"
           >
             <div className="flex items-center">
               <div className="relative h-10 w-10 flex items-center justify-center">
@@ -134,6 +135,9 @@ export default function Navbar() {
           size="icon"
           className="md:hidden text-white hover:bg-emerald-900/20"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileMenuOpen}
+          aria-controls="mobile-menu"
         >
           {mobileMenuOpen ? <X /> : <Menu />}
         </Button>
@@ -143,6 +147,7 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
+            id="mobile-menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}

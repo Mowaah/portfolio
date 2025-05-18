@@ -311,7 +311,7 @@ function ProjectImageCarousel({
       <button
         onClick={prevSlide}
         className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors duration-300"
-        aria-label="Previous image"
+        aria-label={`Previous ${projectTitle} image`}
       >
         <ChevronLeft className="h-5 w-5" />
       </button>
@@ -319,7 +319,7 @@ function ProjectImageCarousel({
       <button
         onClick={nextSlide}
         className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors duration-300"
-        aria-label="Next image"
+        aria-label={`Next ${projectTitle} image`}
       >
         <ChevronRight className="h-5 w-5" />
       </button>
@@ -335,7 +335,10 @@ function ProjectImageCarousel({
                 ? "bg-emerald-500"
                 : "bg-white/50 hover:bg-white/80"
             }`}
-            aria-label={`Go to image ${index + 1}`}
+            aria-label={`Go to image ${index + 1} of ${
+              images.length
+            } for ${projectTitle}`}
+            aria-current={index === currentIndex ? "true" : "false"}
           />
         ))}
       </div>

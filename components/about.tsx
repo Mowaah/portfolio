@@ -77,7 +77,7 @@ export default function About() {
                   <h3 className="font-bold text-lg mb-2 text-white">
                     {quality.title}
                   </h3>
-                  <p className="text-gray-400">{quality.description}</p>
+                  <p className="text-gray-300">{quality.description}</p>
                 </CardContent>
               </Card>
             </motion.div>

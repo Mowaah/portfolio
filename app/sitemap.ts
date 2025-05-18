@@ -1,7 +1,8 @@
 import { MetadataRoute } from "next";
+import { SITE_URL } from "@/config/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://portfolio-ivory-phi-12.vercel.app";
+  const baseUrl = SITE_URL;
 
   // If more pages are added later (e.g., /blog, /project/[id]), list them here.
   return [

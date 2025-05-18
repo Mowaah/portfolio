@@ -155,10 +155,10 @@ export default function Contact() {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 bg-emerald-950/50 rounded-full border border-emerald-900/50 hover:bg-emerald-500/20 hover:border-emerald-500/50 transition-colors text-white"
+                      className="p-4 bg-emerald-950/50 rounded-full border border-emerald-900/50 hover:bg-emerald-500/20 hover:border-emerald-500/50 transition-colors text-white"
                       whileHover={{ y: -5 }}
                       transition={{ duration: 0.2 }}
-                      aria-label={link.name}
+                      aria-label={`Connect with me on ${link.name}`}
                     >
                       {link.icon}
                     </motion.a>
@@ -230,6 +230,9 @@ export default function Contact() {
                     type="submit"
                     className="w-full bg-emerald-600 hover:bg-emerald-700 text-white"
                     disabled={isSubmitting}
+                    aria-label={
+                      isSubmitting ? "Sending message..." : "Send message"
+                    }
                   >
                     {isSubmitting ? (
                       <span className="flex items-center gap-2">
@@ -238,6 +241,7 @@ export default function Contact() {
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
+                          aria-hidden="true"
                         >
                           <circle
                             className="opacity-25"

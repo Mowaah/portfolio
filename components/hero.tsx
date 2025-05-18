@@ -133,15 +133,23 @@ export default function Hero() {
               size="lg"
               className="bg-emerald-600 hover:bg-emerald-700 text-white"
             >
-              <Link href="#projects" className="flex items-center gap-2">
+              <Link
+                href="#projects"
+                className="flex items-center gap-2"
+                aria-label="View my projects"
+              >
                 View My Work
               </Link>
             </Button>
-            <a href="/Mohamed_Bahaa_CV.pdf" download>
+            <a
+              href="/Mohamed_Bahaa_CV.pdf"
+              download
+              aria-label="Download my CV"
+            >
               <Button
                 variant="outline"
                 size="lg"
-                className="border-emerald-600 text-emerald-500 hover:bg-emerald-950/50"
+                className="border-emerald-600 text-emerald-400 hover:bg-emerald-950/50 hover:text-white"
               >
                 <Download className="mr-2 h-4 w-4" /> Download CV
               </Button>
@@ -161,6 +169,7 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                 whileHover={{ scale: 1.1 }}
+                aria-label={`Visit my ${link.name} profile`}
               >
                 {link.icon}
               </motion.a>
@@ -200,6 +209,7 @@ export default function Hero() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
                 whileHover={{ scale: 1.1 }}
+                aria-label={`Visit my ${link.name} profile`}
               >
                 {link.icon}
               </motion.a>
@@ -228,7 +238,9 @@ export default function Hero() {
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
       >
-        <ArrowDown className="text-emerald-500 w-6 h-6" />
+        <a href="#about" aria-label="Scroll down to About section">
+          <ArrowDown className="text-emerald-500 w-6 h-6" />
+        </a>
       </motion.div>
     </section>
   );
