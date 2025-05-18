@@ -155,7 +155,7 @@ export default function Contact() {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-4 bg-emerald-950/50 rounded-full border border-emerald-900/50 hover:bg-emerald-500/20 hover:border-emerald-500/50 transition-colors text-white"
+                      className="p-3 bg-emerald-950/50 rounded-full border border-emerald-900/50 hover:bg-emerald-500/20 hover:border-emerald-500/50 transition-colors text-white"
                       whileHover={{ y: -5 }}
                       transition={{ duration: 0.2 }}
                       aria-label={`Connect with me on ${link.name}`}
