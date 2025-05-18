@@ -131,7 +131,7 @@ export default function Hero() {
           <div className="flex flex-wrap gap-4">
             <Button
               size="lg"
-              className="bg-emerald-600 hover:bg-emerald-700 text-white"
+              className="bg-emerald-700 hover:bg-emerald-800 text-white font-medium px-6 py-2.5 h-auto text-base"
             >
               <Link
                 href="#projects"
@@ -149,7 +149,7 @@ export default function Hero() {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-emerald-600 text-emerald-400 hover:bg-emerald-950/50 hover:text-white"
+                className="border-emerald-600 text-emerald-400 hover:bg-emerald-950/50 hover:text-white px-6 py-2.5 h-auto text-base"
               >
                 <Download className="mr-2 h-4 w-4" /> Download CV
               </Button>
